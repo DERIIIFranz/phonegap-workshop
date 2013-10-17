@@ -68,13 +68,15 @@ var EmployeeView = function(employee) {
         return false;
     };
 	
-	this.showConfirm = function() {
+	this.showConfirm = function(event) {
+		event.preventDefaultl();
         navigator.notification.confirm(
             'You are the winner!',  // message
             onConfirm,              // callback to invoke with index of button pressed
             'Game Over',            // title
             'Restart,Exit'          // buttonLabels
         );
+		return false;
     };
 
 
