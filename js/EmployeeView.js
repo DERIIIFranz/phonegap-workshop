@@ -67,12 +67,17 @@ var EmployeeView = function(employee) {
 
         return false;
     };
+
 	
 	this.showConfirm = function(event) {
 		event.preventDefaultl();
+		if (!navigator.notification) {
+			app.showAlert("Notifcation not supported", "Error");
+			return;
+		}
         navigator.notification.confirm(
             'You are the winner!',  // message
-            onConfirm,              // callback to invoke with index of button pressed
+            alert('You selected button ' + buttonIndex),              // callback to invoke with index of button pressed
             'Game Over',            // title
             'Restart,Exit'          // buttonLabels
         );
