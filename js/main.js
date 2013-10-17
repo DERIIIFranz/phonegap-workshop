@@ -7,6 +7,15 @@ var app = {
             alert(title ? (title + ": " + message) : message);
         }
     },
+	
+	showConfirm: function (message, title) {
+		if (navigator.notification) {
+			navigator.notification.confirm(message,null,title, labels);
+		}
+		else {
+            alert(title ? (title + ": " + message) : message);
+        }
+	},
 
     registerEvents: function() {
         $(window).on('hashchange', $.proxy(this.route, this));

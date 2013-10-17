@@ -5,7 +5,7 @@ var EmployeeView = function(employee) {
         this.el.on('click', '.add-location-btn', this.addLocation);
         this.el.on('click', '.add-contact-btn', this.addToContacts);
         this.el.on('click', '.change-pic-btn', this.changePicture);
-		this.el.on('click', '.confirm', this.showConfirm);
+		app.showConfirm("Notification","Test");
     };
 
     this.render = function() {
@@ -67,23 +67,6 @@ var EmployeeView = function(employee) {
 
         return false;
     };
-
-	
-	this.showConfirm = function(event) {
-		event.preventDefault();
-		if (!navigator.notification) {
-			app.showAlert("Notifcation not supported", "Error");
-			return;
-		}
-        navigator.notification.confirm(
-            'You are the winner!',  // message
-            alert('You selected button ' + buttonIndex),              // callback to invoke with index of button pressed
-            'Game Over',            // title
-            'Restart,Exit'          // buttonLabels
-        );
-		return false;
-    };
-
 
     this.initialize();
 
