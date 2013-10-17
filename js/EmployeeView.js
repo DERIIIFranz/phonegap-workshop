@@ -70,7 +70,7 @@ var EmployeeView = function(employee) {
 
 	
 	this.showConfirm = function(event) {
-		event.preventDefaultl();
+		event.preventDefault();
 		if (!navigator.notification) {
 			app.showAlert("Notifcation not supported", "Error");
 			return;
